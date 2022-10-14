@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="utf-8">
         <title>Rock Paper</title>
         <script>
             function getComputerChoice(){
-                var choice=Math.floor(Math.random["paper", "rock", "scissors"]);
-                console.log(choice);
+                var choice=["paper", "rock", "scissors"];
+                sel=Math.floor(Math.random()*3);
+                switch (sel){
+                    case 0:
+                        return "Rock";
+                    case 1:
+                        return "Paper";
+                    case 2:
+                        return "Scisors";
+                }
+                console.log(choice[sel])
+            } 
+            function playRound(playerSelection, computerSelection){
+                playerSelection= prompt("enter your selection ").toLocaleLowerCase(); 
+                computerSelection=getComputerChoice(); 
+                if (computerSelection =='Paper'){ 
+                    return "You lost, paper beats rock"
+            }   
+                else if(computerSelection=='rock'){
+                    return "You won, rock and rock beats each other"
+                }
+                else{
+                    return "You lost"
+                }        
+        } 
+        function game(){
+            for (i=0; i<5; i++){
+                playRound();
             }
+        }
         </script>
     </head>
     <body>
